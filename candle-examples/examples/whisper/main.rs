@@ -368,6 +368,8 @@ enum WhichModel {
     Large,
     LargeV2,
     LargeV3,
+    #[value(name = "distil-small.en")]
+    DistilSmallEn,
     #[value(name = "distil-medium.en")]
     DistilMediumEn,
     #[value(name = "distil-large-v2")]
@@ -385,9 +387,12 @@ impl WhichModel {
             | Self::LargeV2
             | Self::LargeV3
             | Self::DistilLargeV2 => true,
-            Self::TinyEn | Self::BaseEn | Self::SmallEn | Self::MediumEn | Self::DistilMediumEn => {
-                false
-            }
+            Self::TinyEn
+            | Self::BaseEn
+            | Self::SmallEn
+            | Self::MediumEn
+            | Self::DistilMediumEn
+            | Self::DistilSmallEn => false,
         }
     }
 
@@ -404,6 +409,7 @@ impl WhichModel {
             Self::Large => ("openai/whisper-large", "refs/pr/36"),
             Self::LargeV2 => ("openai/whisper-large-v2", "refs/pr/57"),
             Self::LargeV3 => ("openai/whisper-large-v3", "main"),
+            Self::DistilSmallEn => ("distil-whisper/distil-small.en", "main"),
             Self::DistilMediumEn => ("distil-whisper/distil-medium.en", "main"),
             Self::DistilLargeV2 => ("distil-whisper/distil-large-v2", "main"),
         }

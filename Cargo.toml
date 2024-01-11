@@ -40,6 +40,7 @@ candle-nn = { path = "./candle-nn" }
 candle-onnx = { path = "./candle-onnx" }
 candle-transformers = { path = "./candle-transformers" }
 clap = { version = "4.2.4", features = ["derive"] }
+cpal = "0.15.2"
 criterion = { version = "0.5.1", default-features=false }
 cudarc = { version = "0.10.0", features = ["f16"] }
 gemm = { version = "0.16.6", features = ["wasm-simd128-enable"] }
